@@ -2,12 +2,12 @@ h1{
     color: aquamarine;
 }
 .post{
-    background-color: blue;
+    background-color: rgb(72, 94, 112);
 }
 
 .user{
     font-style: italic;
-    color: red;
+    color: rgb(0, 179, 255);
 }
 .content{
     color: rgb(255, 255, 255);
