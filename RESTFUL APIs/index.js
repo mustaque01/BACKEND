@@ -49,6 +49,19 @@ app.patch("/posts/:id", (req, res) => {
     res.send("Update request working!");
 });
 
+app.get("/posts/:id/edit", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find(p => p.id === id);
+    res.render('edit', { post });
+});
+
+app.delete("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    posts = posts.filter(p => p.id !== id);
+    //console.log(posts delete successfully);
+    res.redirect('/posts');
+});
+
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });
