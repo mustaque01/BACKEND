@@ -1,4 +1,4 @@
-const { faker } = require('@faker-js/faker');
+import { faker } from '@faker-js/faker';
 
 import mysql from 'mysql2/promise';
 
@@ -8,10 +8,20 @@ const connection = await mysql.createConnection({
   host: 'localhost',
   user: 'root',
   database: 'test',
-  password: 'mustak@560',
+  password: 'Mustak@560',
 });
 
+try {
+  const [results, fields] = await connection.query(
+    'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45'
+  );
 
+  console.log(results); // results contains rows returned by server
+  console.log(fields); // fields contains extra meta data about results, if available
+} catch (err) {
+  console.log(err);
+}
+ 
 
     // let createRandomUser = () => {
     //   return {
