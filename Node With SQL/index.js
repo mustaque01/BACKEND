@@ -7,25 +7,18 @@ import mysql from 'mysql2/promise';
 const connection = await mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'test',
+  database: 'delta_app',
   password: 'Mustak@560',
 });
 
+// Correct: Using async/await
 try {
-  const [results, fields] = await connection.query(
-    'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45'
-  );
-
+  const [results, fields] = await connection.query("SHOW TABLES");
   console.log(results); // results contains rows returned by server
-  console.log(fields); // fields contains extra meta data about results, if available
 } catch (err) {
   console.log(err);
 }
- 
-
-    // let createRandomUser = () => {
-    //   return {
-    //     userId: faker.string.uuid(),
+connection.end();
     //     username: faker.internet.username(), // before version 9.1.0, use userName()
     //     email: faker.internet.email(),
     //     avatar: faker.image.avatar(),
@@ -38,13 +31,13 @@ try {
     // console.log(createRandomUser());
 
 
-let getRandomUsers = () => {
-    return {
-        userId: faker.string.uuid(),
-        username: faker.internet.username(), // before version 9.1.0, use userName()
+function getRandomUsers() {
+  return {
+    userId: faker.string.uuid(),
+    username: faker.internet.username(), // before version 9.1.0, use userName()
     email: faker.internet.email(),
     password: faker.internet.password(),
   };
-};
+}
 
-console.log(getRandomUsers());
+// console.log(getRandomUsers());
