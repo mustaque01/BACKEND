@@ -2,7 +2,8 @@ import { faker } from '@faker-js/faker';
 
 import mysql from 'mysql2/promise';
 
-
+const express = require("express");
+const app = express();
 // Create the connection to database
 const connection = await mysql.createConnection({
   host: 'localhost',
@@ -39,5 +40,10 @@ function getRandomUsers() {
     password: faker.internet.password(),
   };
 }
-
+app.get("/" , (req, res) => {
+  res.send("welcome to Home page");
+});
+app.listen("8080", () => {
+  console.log("server is listening to port 8080")
+});
 // console.log(getRandomUsers());
