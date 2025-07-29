@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Users</title>
+    <style>
+      div {
+        display: flex;
+      }
+      button {
+        margin: 0 1rem;
+      }
+      table,
+      th,
+      td {
+        border-collapse: collapse;
+        border: 0.1rem solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <form action="/" method="get">
+        <button>Home</button>
+      </form>
+      <form action="/user/new" method="get">
+        <button>Add new user</button>
+      </form>
+    </div>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+      <% for (user of users) { %>
+      <tr>
+        <td><%=user.id%></td>
+        <td><%=user.username%></td>
+        <td><%=user.email%></td>
+        <td>
+          <form action="/user/edit/<%=user.id%>" method="GET">
+            <button>Edit Username</button>
+          </form>
+        </td>
+        <td>
+          <form action="/user/<%=user.id%>/delete" method="get">
+            <button>Delete user</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
