@@ -1,3 +1,4 @@
+const { error, profile } = require('console');
 const express = require('express');
 const app = express();
 // middle ware ka kaam hota hai ki  next function ko call karna
@@ -56,3 +57,16 @@ app.listen(8080, () => {
 
 
 //Create a simple middleware for validating user.
+const validateUser = (req, res, next) => {
+  const user = req.user;
+  if(!user){
+    return res.status(401).json({error: 'unauthorized - user not found'
+
+  });
+  }
+  next();
+};
+app.get('/profile', validateUser, (req, res) => {
+const user = req.user;
+res.json({ message : 'profile page' , username : user.username}); 
+});
