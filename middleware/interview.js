@@ -40,3 +40,19 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public'))); // public/index.html, etc.
 
 app.listen(3000);
+
+//using res.sendFile
+
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = 8000;
+
+app.get('/', (req, res) => {
+    const filePath = path.join(__dirname, 'public', 'index.html');
+    res.sendFile(filePath);
+});
+
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+});
