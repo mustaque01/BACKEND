@@ -16,3 +16,6 @@
 //How to Create a New Database and Collection in MongoDB?
 use mydatabase
 db.createCollection("mycollection")
+
+//How do you insert data into a collection?
+db.users.insertOne({ name: "John", age: 28 })
