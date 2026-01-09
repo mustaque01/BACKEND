@@ -3,3 +3,11 @@
 //  rely on rigid tables, MongoDB stores data in a flexible BSON format
 //  (similar to JSON), enabling faster and more efficient storage and retrieval.
 
+
+//Document: A record in MongoDB is called a document.
+{
+  _id: ObjectId("64fe1234567890abcdef1234"),
+  name: "John Doe",
+  age: 30,
+  skills: ["JavaScript", "MongoDB"]
+}
