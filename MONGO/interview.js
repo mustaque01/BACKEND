@@ -11,3 +11,6 @@
   age: 30,
   skills: ["JavaScript", "MongoDB"]
 }
+
+
+//How to Create a New Database and Collection in MongoDB?
