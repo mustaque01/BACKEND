@@ -53,3 +53,6 @@ app.get ('/random', (req, res) => {
 app.listen(8080, () => {
   console.log("Listening on port 8080...");
 });
+
+
+//Create a simple middleware for validating user.
