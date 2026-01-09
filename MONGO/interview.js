@@ -19,3 +19,9 @@ db.createCollection("mycollection")
 
 //How do you insert data into a collection?
 db.users.insertOne({ name: "John", age: 28 })
+
+//How do you query data from a collection?
+db.users.find({ age: { $gt: 25 } })
+
+//How do you update data in a collection?
+db.users.updateOne({ name: "John" }, { $set: { age: 29 } })
