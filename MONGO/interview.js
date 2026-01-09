@@ -14,3 +14,5 @@
 
 
 //How to Create a New Database and Collection in MongoDB?
+use mydatabase
+db.createCollection("mycollection")
