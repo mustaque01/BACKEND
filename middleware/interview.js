@@ -28,3 +28,15 @@ demo().catch(console.error);
 
 //18. What is meant by Scaffolding in ExpressJS?
 //Scaffolding in ExpressJS refers to the process of generating a basic project structure automatically. This can speed up the initial setup and help maintain consistency in the way projects are structured, especially in large teams.
+
+
+
+
+//27. How would you render plain HTML using ExpressJS?
+const path = require('path');
+const express = require('express');
+const app = express();
+
+app.use(express.static(path.join(__dirname, 'public'))); // public/index.html, etc.
+
+app.listen(3000);
