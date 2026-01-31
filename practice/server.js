@@ -1,8 +1,5 @@
-const catme = require('cat-me');
+const app = require('./src/app');
 
-
-
-
-
-
-console.log(catme());
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
